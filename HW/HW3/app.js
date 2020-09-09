@@ -13,24 +13,25 @@ self(10, false, "google")
 //task 2 Не работает
 
 function userInfo() {
-  return `Дата регистрации: ${registered} ? ${this['data']} : Незарегистрированый пользователь: ${this['name']}`
+  if (this.registered === true) console.log(`Дата регистрации: ${this.data}`)
+  else console.log(`Незарегистрированный пользователь: ${this.name}`)
+
 }
 
 var obj1 = {
   name: 'Alex',
   registered: true,
-  data: Date(2018, 04, 23)
+  data: '21.12.2018'
 }
 
 var obj2 = {
   name: 'Alena',
   registered: false,
-  data: ''
+  data: '10.04.2020'
 }
 
-obj1.getInfo = function userInfo() {}
+obj1.getInfo = userInfo
+obj2.getInfo = userInfo
 
-obj2.getInfo = function userInfo() {}
-
-var objFirst = obj1.getInfo()
-var objSecond = obj2.getInfo()
+obj1.getInfo()
+obj2.getInfo()
